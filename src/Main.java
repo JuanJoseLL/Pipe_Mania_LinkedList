@@ -29,13 +29,15 @@ public class Main {
                         System.out.println("3. Exit");
                          option2 = lector.nextInt();
                         lector.nextLine();
+                        game.newPlayer(name);
                         addPipe(option2);
                     }
                     break ;
-                case 2:
+                case 2: boolean m= game.simulate();
+                    System.out.println(m);
                     break ;
                 case 3:
-                    flag = true ;
+                     game.inorder();
                     break ;
 
             }
@@ -54,6 +56,19 @@ public class Main {
                 int column = lector.nextInt();
                 System.out.println("Enter the type of the pipe: 1. =; 2.  ||; 3. o.");
                 int typePipe = lector.nextInt();
+                String pipe="";
+                switch (typePipe){
+                    case 1: pipe="=";
+                        break;
+                    case 2: pipe="||";
+                        break;
+                    case 3: pipe="o";
+                        break;
+                }
+                game.changePipe(line,column,pipe);
+                game.print();
+                game.simulate();
+                System.out.println("---------------------------------");
                 break;
         }
     }

@@ -1,7 +1,8 @@
 public class Player {
     private String username;
     private double Score;
-
+    private Player right;
+    private Player left;
     public Player(String username) {
         this.username = username;
     }
@@ -20,5 +21,21 @@ public class Player {
 
     public void setScore(double score) {
         Score = score;
+    }
+
+    public Player getRight() {
+        return right;
+    }
+
+    public void setRight(Player right) {
+        this.right = right;
+    }
+
+    public Player getLeft() {
+        return left;
+    }
+
+    public void setLeft(Player left) {
+        this.left = left;
     }
 }

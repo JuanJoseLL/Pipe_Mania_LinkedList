@@ -1,5 +1,8 @@
 public class Pipe {
     private Pipe next;
+    private Pipe prev;
+    private Pipe up;
+    private Pipe down;
     private int column;
     private int line;
     private String typePipe;
@@ -10,6 +13,21 @@ public class Pipe {
         this.typePipe = typePipe;
     }
 
+    public Pipe getUp() {
+        return up;
+    }
+
+    public void setUp(Pipe up) {
+        this.up = up;
+    }
+
+    public Pipe getDown() {
+        return down;
+    }
+
+    public void setDown(Pipe down) {
+        this.down = down;
+    }
 
     public Pipe getNext() {
         return next;
@@ -41,5 +59,13 @@ public class Pipe {
 
     public void setLine(int line) {
         this.line = line;
+    }
+
+    public Pipe getPrev() {
+        return prev;
+    }
+
+    public void setPrev(Pipe prev) {
+        this.prev = prev;
     }
 }
