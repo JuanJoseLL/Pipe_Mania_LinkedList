@@ -1,8 +1,8 @@
 public class Pipe {
     private Pipe next;
     private Pipe prev;
-    private Pipe up;
-    private Pipe down;
+
+    private boolean correctPosition;
     private int column;
     private int line;
     private String typePipe;
@@ -13,20 +13,12 @@ public class Pipe {
         this.typePipe = typePipe;
     }
 
-    public Pipe getUp() {
-        return up;
+    public boolean isCorrectPosition() {
+        return correctPosition;
     }
 
-    public void setUp(Pipe up) {
-        this.up = up;
-    }
-
-    public Pipe getDown() {
-        return down;
-    }
-
-    public void setDown(Pipe down) {
-        this.down = down;
+    public void setCorrectPosition(boolean correctPosition) {
+        this.correctPosition = correctPosition;
     }
 
     public Pipe getNext() {

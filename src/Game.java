@@ -5,11 +5,12 @@ public class Game {
     private Board board;
     private ArrayList<Player> list;
     public Game(){
-        board=new Board();
+
         list=new ArrayList<>();
     }
 
     public void newBoard(){
+        board=new Board();
         board.create();
         board.startAndFinal();
     }
@@ -19,14 +20,13 @@ public class Game {
     public void changePipe(int line,int col,String type){
         board.changePipe(line,col,type);
     }
-    public boolean simulate(){
-        return board.simulate();
-
+    public void changePipe1(int line, int col, String type){
+        board.changePipe1(line,col,type);
+    }
+    public void simulate(){
+         board.simulate();
     }
 
-    /*public void printPrueba(){
-        board.printPrueba();
-    }*/
     public void newPlayer(String name){
         list.add(new Player(name));
     }
@@ -58,7 +58,10 @@ public class Game {
             }
         }else{
             //Equal
-
+            Player aux = current.getLeft();
+            current.setLeft(input);
+            input.setLeft(aux);
+            return;
         }
     }
     public void inorder(){
@@ -70,7 +73,7 @@ public class Game {
         }
 
         inorder(current.getLeft());
-        System.out.println(current.getUsername());
+        System.out.println(current.getUsername()+": "+current.getScore());
         inorder(current.getRight());
     }
     public Board getBoard() {
