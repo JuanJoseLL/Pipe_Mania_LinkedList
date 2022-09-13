@@ -29,13 +29,15 @@ public class Main {
     }
     public static void menuBoard(){
                 boolean cont=true;
+                long endTime=0;
+                int i=0;
                 int option2=0;
 
                     System.out.println("Enter your nickname");
                     String name = lector.nextLine();
-                     game.insert(name);
                      game.newBoard();
                      game.print();
+                     long startTime=System.currentTimeMillis()/1000;
                     while(cont){
                     System.out.println("...Let´s start the game...");
                     System.out.println("Choose an option");
@@ -47,6 +49,7 @@ public class Main {
 
                     switch (option2) {
                         case 1:
+                            i++;
                             addPipe();
                             break;
                         case 2:
@@ -54,11 +57,14 @@ public class Main {
 
                             break;
                         case 3: cont=false;
+                                 endTime=System.currentTimeMillis()/1000;
                             break;
                     }
 
 
                 }
+                long totalTime=endTime-startTime;
+                    calculateScore(totalTime,i,name);
 
     }
     public static void addPipe() {
@@ -86,6 +92,10 @@ public class Main {
                 game.print();
                 System.out.println("---------------------------------");
 
+        }
+        public static void calculateScore(long totalTime,int pipesUsed,String name){
+            double points=pipesUsed * 100-(60-totalTime)*10;
+            game.insert(name,points);
         }
 
 }

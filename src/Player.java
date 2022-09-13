@@ -1,10 +1,11 @@
 public class Player {
     private String username;
-    private double Score;
+    private double score;
     private Player right;
     private Player left;
-    public Player(String username) {
+    public Player(String username,double score) {
         this.username = username;
+        this.score=score;
     }
 
     public String getUsername() {
@@ -16,11 +17,11 @@ public class Player {
     }
 
     public double getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(double score) {
-        Score = score;
+        this.score = score;
     }
 
     public Player getRight() {

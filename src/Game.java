@@ -27,12 +27,8 @@ public class Game {
          board.simulate();
     }
 
-    public void newPlayer(String name){
-        list.add(new Player(name));
-    }
-    public void insert(String name){
-        Player n=new Player(name);
-        n.setScore(10);
+    public void insert(String name,double points){
+        Player n=new Player(name,points);
         if(root==null){
             root=n;
         }else{
@@ -40,7 +36,6 @@ public class Game {
         }
     }
     private void insert(Player input,Player current){
-        current.setScore(7);
         if(input.getScore()< current.getScore()){
             //Left
             if(current.getLeft()!=null){

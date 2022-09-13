@@ -121,6 +121,9 @@ public class Board {
                 current.setTypePipe(type);
                 current.setCorrectPosition(true);
                 return;
+            }else if(current.getNext().getNext().getNext().getNext().getNext().getNext().getNext().getNext().getTypePipe().equals("o") || current.getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getTypePipe().equals("o") || current.getNext().getTypePipe().equals("o") || current.getPrev().getTypePipe().equals("o") && type.equals("o")){
+                current.setTypePipe(type);
+                current.setCorrectPosition(false);
             }else{
                 current.setTypePipe(type);
                 current.setCorrectPosition(false);
@@ -160,21 +163,18 @@ public class Board {
             System.out.println("The simulation is good");
             return;
         }
-
+        int i=0;
         if(current.getTypePipe().equals("F") || current.getTypePipe().equals("D")){
             if(current.getPrev().getTypePipe().equals("=") || current.getNext().getTypePipe().equals("=")){
                 current.setCorrectPosition(true);
-                System.out.println("aqui "+current.isCorrectPosition());
                 simulate=true;
 
             }else if(current.getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getPrev().getTypePipe().equals("||") || current.getNext().getNext().getNext().getNext().getNext().getNext().getNext().getNext().getTypePipe().equals("||") ){
                 current.setCorrectPosition(true);
-                System.out.println("aqui "+current.isCorrectPosition());
                 simulate=true;
 
             }else{
                 current.setCorrectPosition(false);
-                System.out.println("aqui "+current.isCorrectPosition());
                 simulate=false;
 
             }
@@ -186,10 +186,21 @@ public class Board {
                 simulate=false;
             }
         }
+
         if(!simulate){
             System.out.println("The pipeline does not work, try again ");
             return;
         }
+        //Termina el recorrido cuando encuentra el final de la pipe, despues de verificar esta misma
+        if(current.getTypePipe().equals("D")){
+            if(simulate){
+                System.out.println("the pipeline works");
+            }else{
+                System.out.println("the pipeline does not work");
+            }
+            return;
+        }
+
         simulate(current.getNext());
     }
     public Pipe getHead() {
