@@ -1,3 +1,5 @@
+package model;
+
 public class Pipe {
     private Pipe next;
     private Pipe prev;

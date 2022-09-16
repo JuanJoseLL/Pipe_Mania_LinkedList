@@ -1,13 +1,11 @@
-import java.util.ArrayList;
+package model;
+
 
 public class Game {
     private Player root;
     private Board board;
-    private ArrayList<Player> list;
-    public Game(){
 
-        list=new ArrayList<>();
-    }
+
 
     public void newBoard(){
         board=new Board();
@@ -20,7 +18,8 @@ public class Game {
     public void changePipe(int line,int col,String type){
         board.changePipe(line,col,type);
     }
-    public void changePipe1(int line, int col, String type){
+    public void changePipe1(int line, int col, String type) {
+
         board.changePipe1(line,col,type);
     }
     public void simulate(){
@@ -60,13 +59,14 @@ public class Game {
         }
     }
     public void inorder(){
+
         inorder(root);
+
     }
     private void inorder(Player current){
         if(current==null){
             return;
         }
-
         inorder(current.getLeft());
         System.out.println(current.getUsername()+": "+current.getScore());
         inorder(current.getRight());
@@ -87,11 +87,4 @@ public class Game {
         this.root = root;
     }
 
-    public ArrayList<Player> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<Player> list) {
-        this.list = list;
-    }
 }

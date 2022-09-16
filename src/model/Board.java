@@ -1,4 +1,4 @@
-
+package model;
 
 import java.util.Random;
 public class Board {
@@ -46,7 +46,7 @@ public class Board {
     public void changePipe(int line, int col,String type){
         changePipe(line,col,head,type);
     }
-    private void changePipe(int line,int col,Pipe current,String type) {
+    private void changePipe(int line, int col, Pipe current, String type) {
         if(current==null){
             System.out.println("Invalid position");
             return;
@@ -72,7 +72,7 @@ public class Board {
     public void changePipe1(int line, int col,String type){
         changePipe1(line,col,head,type);
     }
-    private void changePipe1(int line,int col,Pipe current,String type) {
+    private void changePipe1(int line, int col, Pipe current, String type) {
         if(current==null){
             System.out.println("Invalid position");
             return;
@@ -95,7 +95,6 @@ public class Board {
                 current.setCorrectPosition(true);
                 System.out.println(current.getLine() + ", " + current.getColumn());
                 System.out.println(current.getPrev().getLine() + ", " + current.getPrev().getColumn());
-
                 return;
             } else if (current.getLine() == 0 && type.equals("||")) {
                 System.out.println("The pipe must be connected to somenthing");

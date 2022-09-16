@@ -1,3 +1,5 @@
+package ui;
+import model.*;
 import java.util.Scanner;
 public class Main {
     public static Scanner  lector = new Scanner(System.in) ;
@@ -7,7 +9,7 @@ public class Main {
         while(!flag){
             System.out.println("WELCOME TO PIPE MANIA");
             System.out.println("Choose an option");
-            System.out.println("1. Start new Game");
+            System.out.println("1. Start new game");
             System.out.println("2. See score");
             System.out.println("3. Exit");
             int option = lector.nextInt() ;
@@ -49,7 +51,7 @@ public class Main {
 
                     switch (option2) {
                         case 1:
-                            i++;
+                            System.out.println("aqui :"+i++);
                             addPipe();
                             break;
                         case 2:
@@ -60,8 +62,6 @@ public class Main {
                                  endTime=System.currentTimeMillis()/1000;
                             break;
                     }
-
-
                 }
                 long totalTime=endTime-startTime;
                     calculateScore(totalTime,i,name);
